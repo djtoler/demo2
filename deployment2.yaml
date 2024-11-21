@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8demoecomm-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8demoecomm
+  template:
+    metadata:
+      labels:
+        app: k8demoecomm
+    spec:
+      containers:
+      - name: k8demoecomm
+        image: djtoler/dp9frontend
+        ports:
+        - containerPort: 3000
